@@ -1,0 +1,10 @@
+{{ categoria }}
+{{libros | json}}
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let libro of libros">
+      <app-card [book]="libro" [categoria]="categoria" (cambioCategoria)="categoria=$event"></app-card>
+    </div>
+  </div>
+</div>
+<button (click)="destruirTarjetas()">Destruir</button>

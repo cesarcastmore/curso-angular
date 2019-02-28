@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row col-md-6 col-md-offset-2 custyle">
+    <table class="table table-striped custab">
+      <thead>
+        <button (click)="cs.agregar()" class="btn btn-primary btn-xs pull-right"><b>+</b> Agregar</button>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let categoria of cs._categorias">
+        <td>{{categoria.id}}</td>
+        <td>{{categoria.nombre}}</td>
+        <td class="text-center">
+          <app-boton></app-boton>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
