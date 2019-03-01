@@ -19,4 +19,8 @@ public url:string="https://angular-1f48b.firebaseio.com/autores";
    public crear(autor: Autor): Observable<any>{
    	return this.http.post(this.url +".json", autor);
    }
+
+   public obtenerAutores(): Observable<any>{
+   	return this.http.get(this.url+ ".json");
+   }
 }
