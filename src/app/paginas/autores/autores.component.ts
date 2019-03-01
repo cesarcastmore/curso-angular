@@ -13,7 +13,7 @@ import { AutoresService } from '../../servicios/autores.service';
 })
 export class AutoresComponent implements OnInit {
 
-  public autores: Autor[]=[];
+  public autores: Autor[] = [];
 
   public formAutor: FormGroup;
   public msg: string;
@@ -56,11 +56,11 @@ export class AutoresComponent implements OnInit {
 
     console.log("termino");
 
-    this.as.obtenerAutores().subscribe((respuesta: any)=>{
+    this.as.obtenerAutores().subscribe((respuesta: any) => {
 
-      for(let atributo in respuesta){
-        let autor: Autor= respuesta[atributo];
-        autor.id= atributo;
+      for (let atributo in respuesta) {
+        let autor: Autor = respuesta[atributo];
+        autor.id = atributo;
         this.autores.push(autor);
       }
 
@@ -148,8 +148,14 @@ export class AutoresComponent implements OnInit {
   }
 
   public borrarAutor(indice: number, autor: Autor) {
-    this.autores.splice(indice, 1);
-    this.msg = "Se ha borrado el autor";
+
+    this.as.borrarAutor(autor.id).subscribe((respuesta: any) => {
+
+      this.autores.splice(indice, 1);
+      this.msg = "Se ha borrado el autor";
+      
+    });
+
 
 
   }
