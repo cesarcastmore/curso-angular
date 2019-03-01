@@ -13,15 +13,12 @@ import { AutoresService } from '../../servicios/autores.service';
 })
 export class AutoresComponent implements OnInit {
 
-  public autores: Autor[] = autores;
+  public autores: Autor[]=[];
 
   public formAutor: FormGroup;
   public msg: string;
 
   public data: Observable < number[] > ;
-
-
-
 
 
   constructor(public as: AutoresService) {
@@ -58,6 +55,16 @@ export class AutoresComponent implements OnInit {
      );*/
 
     console.log("termino");
+
+    this.as.obtenerAutores().subscribe((respuesta: any)=>{
+
+      for(let atributo in respuesta){
+        let autor: Autor= respuesta[atributo];
+        autor.id= atributo;
+        this.autores.push(autor);
+      }
+
+    });
 
 
   }
