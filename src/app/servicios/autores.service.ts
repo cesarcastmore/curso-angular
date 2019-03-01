@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class AutoresService {
 
-	public url:string="https://angular-1f48b.firebaseio.com/autores";
+public url:string="https://angular-1f48b.firebaseio.com/autores";
 
   constructor(private http: HttpClient) {
 
@@ -17,7 +17,6 @@ export class AutoresService {
 
 
    public crear(autor: Autor): Observable<any>{
-   	return this.http.post(this.url, autor);
-
+   	return this.http.post(this.url +".json", autor);
    }
 }
