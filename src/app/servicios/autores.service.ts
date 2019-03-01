@@ -23,4 +23,8 @@ public url:string="https://angular-1f48b.firebaseio.com/autores";
    public obtenerAutores(): Observable<any>{
    	return this.http.get(this.url+ ".json");
    }
+
+   public borrarAutor(id: string): Observable<any>{
+   	return this.http.delete(this.url + '/' + id + ".json" );
+   }
 }
